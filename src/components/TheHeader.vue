@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <div class="title">What in the world?</div>
-      <button class="dark-mode">
+      <button class="dark-mode" @click="changeTheme">
         Dark Mode
       </button>
     </div>
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  methods: {
+    changeTheme() {
+      this.$store.commit('toggleTheme')
+    }
+  }
 };
 </script>
 

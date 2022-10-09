@@ -12,14 +12,9 @@ import TheHeader from '@/components/TheHeader';
 export default {
   name: 'App',
   components: {TheHeader},
-  data() {
-    return {
-      theme: 'dark'
-    };
-  },
-  methods: {
-    toggleTheme() {
-      this.theme = this.theme === 'dark' ? 'light' : 'dark';
+  computed: {
+    theme() {
+      return this.$store.state.stateThemes.theme
     }
   }
 };
