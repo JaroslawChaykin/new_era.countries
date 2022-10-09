@@ -1,18 +1,17 @@
 <template>
-  <section class="main"
-           :class="theme">
-    <button @click="toggleTheme">Change theme</button>
-    <h1>hi</h1>
-    <nav>
-      <router-link to="/">Go to Home</router-link>
-    </nav>
-    <router-view/>
+  <section class="main" :class="theme">
+    <the-header/>
+    <div class="container">
+      <router-view/>
+    </div>
   </section>
 </template>
 
 <script>
+import TheHeader from '@/components/TheHeader';
 export default {
   name: 'App',
+  components: {TheHeader},
   data() {
     return {
       theme: 'dark'
@@ -20,7 +19,7 @@ export default {
   },
   methods: {
     toggleTheme() {
-      this.theme = this.theme === 'dark' ? 'white' : 'dark';
+      this.theme = this.theme === 'dark' ? 'light' : 'dark';
     }
   }
 };
@@ -36,14 +35,11 @@ export default {
   max-height: 100%;
   background: var(--main-color);
 }
-
-button {
-  font-size: 72px;
-  text-transform: uppercase;
-  font-weight: 800;
-  background: var(--main-text-color);
+.container {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
 }
-
 * {
   margin: 0;
   padding: 0;

@@ -4,7 +4,7 @@
     --main-text-color: hsl(0, 0%, 100%);
     --input-color: hsl(209, 23%, 22%)
 }
-.main.white {
+.main.light {
     --main-color: hsl(0, 0%, 100%);
     --accent-color: hsl(0, 0%, 100%);
     --main-text-color: hsl(200, 15%, 8%);
