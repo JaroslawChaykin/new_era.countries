@@ -1,0 +1,12 @@
+.main.dark {
+    --main-color: hsl(207, 26%, 17%);
+    --accent-color: hsl(209, 23%, 22%);
+    --main-text-color: hsl(0, 0%, 100%);
+    --input-color: hsl(209, 23%, 22%)
+}
+.main.white {
+    --main-color: hsl(0, 0%, 100%);
+    --accent-color: hsl(0, 0%, 100%);
+    --main-text-color: hsl(200, 15%, 8%);
+    --input-color: hsl(0, 0%, 52%)
+}
