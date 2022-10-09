@@ -14,7 +14,7 @@ export default {
   components: {TheHeader},
   computed: {
     theme() {
-      return this.$store.state.stateThemes.theme
+      return this.$store.getters.currentTheme
     }
   }
 };
