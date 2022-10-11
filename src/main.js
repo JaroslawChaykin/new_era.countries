@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import routes from '@/routes';
+import router from '@/routes/routes';
 import { store } from '@/store';
 
 
 createApp(App)
-  .use(routes)
+  .use(router)
   .use(store)
   .mount('#app')

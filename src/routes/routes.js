@@ -1,11 +1,11 @@
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '@/pages/Home';
 import Details from '@/pages/Details';
-import { createRouter, createWebHashHistory } from 'vue-router';
 import NotFound from '@/pages/NotFound';
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/details/:id', component: Details},
+    { path: '/details/:name', component: Details},
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound},
 ]
 

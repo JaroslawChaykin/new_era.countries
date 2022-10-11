@@ -41,6 +41,5 @@ export default {
   box-sizing: border-box;
   font-family: 'NunitoSans', sans-serif, Arial;
   font-size: 14px;
-  transition: 0.2s ease-in-out;
 }
 </style>
