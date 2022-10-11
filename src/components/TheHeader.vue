@@ -1,5 +1,5 @@
 <template>
-  <header :class="{shadow: currentTheme === 'light'}">
+  <header class="shadow-elements">
     <div class="container">
       <div class="title">What in the world?</div>
       <button class="dark-mode" @click="changeTheme">
@@ -14,7 +14,9 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'TheHeader',
-  computed: mapGetters(['currentTheme']),
+  computed: {
+    ...mapGetters(['currentTheme']),
+  },
   methods: {
     changeTheme() {
       this.$store.commit('toggleTheme')
