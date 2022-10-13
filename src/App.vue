@@ -43,6 +43,5 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: 'NunitoSans', sans-serif, Arial;
-  font-size: 14px;
 }
 </style>

@@ -32,7 +32,7 @@ export const countryDetails = {
         async fetchCountryDetails({commit}, param) {
             commit('setIsLoading', true)
             try {
-                let [data] = await fetch(`https://restcountries.com/v3.1/name/${param}`).then(data => data.json())
+                let [data] = await fetch(`https://restcountries.com/v3.1/alpha/${param}`).then(data => data.json())
                 commit('setCountryDetails', data)
             } catch (e) {
                 commit('setError', e.message)

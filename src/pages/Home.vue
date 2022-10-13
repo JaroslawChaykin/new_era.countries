@@ -1,6 +1,8 @@
 <template>
-  <TheLoader v-if="getAllCountriesLoading" />
-  <CountriesList v-else />
+  <div class="home">
+    <TheLoader v-if="getAllCountriesLoading" />
+    <CountriesList v-else />
+  </div>
 </template>
 
 <script>
@@ -18,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+.home {
+  font-size: 14px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/details/${country.name.official}`">
+  <router-link :to="`/details/${country.cca2}`">
     <div class="country-card shadow-elements">
       <img :src="country.flags.png" :alt="country.name.official + 'flag'" height="180">
       <div class="country-info">
