@@ -1,7 +1,7 @@
 <template>
   <div class="countries-list">
     <CountryCard v-for="country in getSearchedCountries"
-                 :key="country.area"
+                 :key="country.cca3"
                  :country="country" />
   </div>
 </template>

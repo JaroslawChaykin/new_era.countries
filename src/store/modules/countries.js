@@ -23,7 +23,6 @@ export const allCountries = {
             return state.countries.filter(country => country.region === state.filter)
         },
         getSearchedCountries(state, getters) {
-            if(!state.search) return state.countries
             return getters.getFilteredCountries.filter(country => country.name.official.includes(state.search))
         }
     },
