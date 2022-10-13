@@ -41,6 +41,7 @@ a {
   overflow: hidden;
   color: var(--main-text-color);
   cursor: pointer;
+  height: 100%;
 }
 .country-info {
   padding: 20px;

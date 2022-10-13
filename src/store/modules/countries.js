@@ -3,7 +3,8 @@ export const allCountries = {
         return {
             countries: [],
             error: '',
-            filter: 'all',
+            filter: 'All',
+            search: '',
             isLoading: false
         }
     },
@@ -16,6 +17,14 @@ export const allCountries = {
         },
         getAllCountriesLoading(state) {
             return state.isLoading
+        },
+        getFilteredCountries(state) {
+            if(state.filter === 'All') return state.countries
+            return state.countries.filter(country => country.region === state.filter)
+        },
+        getSearchedCountries(state, getters) {
+            if(!state.search) return state.countries
+            return getters.getFilteredCountries.filter(country => country.name.official.includes(state.search))
         }
     },
     mutations: {
@@ -28,7 +37,13 @@ export const allCountries = {
         setIsLoading(state, status) {
             state.isLoading = status
         },
-    },
+        setFilter(state, filter) {
+            state.filter = filter
+        },
+        setSearch(state, search) {
+            state.search = search
+        }
+     },
     actions: {
         async fetchCountries({commit}) {
             commit('setIsLoading', true)

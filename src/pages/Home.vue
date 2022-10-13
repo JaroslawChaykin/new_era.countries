@@ -1,20 +1,27 @@
 <template>
   <div class="home">
-    <TheLoader v-if="getAllCountriesLoading" />
-    <CountriesList v-else />
+    <div class="filter-box">
+      <TheSearch/>
+      <TheFilter/>
+    </div>
+    <TheLoader v-if="getAllCountriesLoading"/>
+    <CountriesList v-else/>
   </div>
 </template>
 
 <script>
 import CountriesList from '@/components/CountriesList';
-import TheLoader from '@/components/TheLoader';
 import { mapGetters } from 'vuex';
+import TheLoader from '@/components/TheLoader';
+import TheFilter from '@/components/TheFilter';
+import TheSearch from '@/components/TheSearch';
+
 export default {
   name: 'Home-page',
-  components: {TheLoader, CountriesList},
+  components: {TheFilter, TheLoader, CountriesList, TheSearch},
   computed: mapGetters(['getAllCountriesLoading']),
   mounted() {
-    this.$store.dispatch('fetchCountries')
+    this.$store.dispatch('fetchCountries');
   }
 };
 </script>
@@ -22,5 +29,13 @@ export default {
 <style scoped>
 .home {
   font-size: 14px;
+  margin-top: 50px;
+  width: 100%;
+}
+.filter-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 </style>

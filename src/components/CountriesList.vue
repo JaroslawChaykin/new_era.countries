@@ -1,6 +1,6 @@
 <template>
   <div class="countries-list">
-    <CountryCard v-for="country in getAllCountries"
+    <CountryCard v-for="country in getSearchedCountries"
                  :key="country.area"
                  :country="country" />
   </div>
@@ -13,7 +13,7 @@ import CountryCard from '@/components/CountryCard';
 export default {
   name: 'CountriesList',
   components: {CountryCard},
-  computed: mapGetters(['getAllCountries', 'currentTheme'])
+  computed: mapGetters(['getSearchedCountries', 'currentTheme'])
 };
 </script>
 
