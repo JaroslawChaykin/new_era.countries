@@ -1,26 +1,25 @@
-export const allCountries = {
+export const countryDetails = {
     state() {
         return {
-            countries: [],
+            country: null,
             error: '',
-            filter: 'all',
             isLoading: false
         }
     },
     getters: {
-        getAllCountries(state) {
-            return state.countries
+        getCountry(state) {
+            return state.country
         },
-        getAllCountriesError(state) {
+        getCountryError(state) {
             return state.error
         },
-        getAllCountriesLoading(state) {
+        getCountryLoading(state) {
             return state.isLoading
         }
     },
     mutations: {
-        setCountries(state, countries) {
-            state.countries = countries
+        setCountryDetails(state, country) {
+            state.country = country
         },
         setError(state, error) {
             state.error = error
@@ -30,11 +29,11 @@ export const allCountries = {
         },
     },
     actions: {
-        async fetchCountries({commit}) {
+        async fetchCountryDetails({commit}, param) {
             commit('setIsLoading', true)
             try {
-                let data = await fetch('https://restcountries.com/v3.1/all').then(data => data.json())
-                commit('setCountries', data)
+                let [data] = await fetch(`https://restcountries.com/v3.1/name/${param}`).then(data => data.json())
+                commit('setCountryDetails', data)
             } catch (e) {
                 commit('setError', e.message)
             } finally {

@@ -1,19 +1,25 @@
 <template>
-  <div class="details">
+  <TheLoader v-if="getCountryLoading" />
+  <div v-else class="details">
     <div class="back">
       <button class="shadow-elements" @click="$router.push('/')">Back</button>
     </div>
     <h1>Details</h1>
-    <h5>{{$route.params.name}}</h5>
+    <h5>{{getCountry.name.official}}</h5>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import TheLoader from '@/components/TheLoader';
 
 export default {
   name: 'Details-page',
-  computed: mapGetters(['currentTheme'])
+  components: {TheLoader},
+  computed: mapGetters(['currentTheme', 'getCountry', 'getCountryLoading']),
+  mounted() {
+    this.$store.dispatch('fetchCountryDetails', this.$route.params.name)
+  }
 };
 </script>
 
@@ -28,5 +34,6 @@ button {
   color: var(--main-text-color);
   border-radius: 6px;
   border: none;
+  cursor: pointer;
 }
 </style>
