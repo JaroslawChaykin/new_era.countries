@@ -19,11 +19,25 @@ export default {
 
 <style scoped>
 .countries-list {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
   flex-wrap: wrap;
   margin: 50px 0;
   row-gap: 25px;
+  column-gap: 50px;
 }
-
+.countries-list a {
+  animation: 0.5s move;
+}
+@keyframes move {
+  from {
+    opacity: 0;
+    transform: scale(0.09) rotate3d(0.4, 0.5, 0.1, 45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate3d(0, 0, 0, 0deg);
+  }
+}
 </style>

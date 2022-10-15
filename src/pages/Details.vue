@@ -106,6 +106,7 @@ export default {
   font-size: 16px;
   width: 100%;
   color: var(--main-text-color);
+  padding-bottom: 50px;
 }
 
 .back {
@@ -167,5 +168,6 @@ button {
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  box-shadow: var(--shadow);
 }
 </style>
