@@ -1,7 +1,8 @@
 <template>
   <div class="details">
-    <div class="back">
-      <button class="shadow-elements" @click="$router.push('/')">Back</button>
+    <div class="buttons">
+      <TheButton text="Back" :callback="() => $router.push('/')" />
+      <TheButton text="Show modal" :callback="targetModalVisible" />
     </div>
     <TheModal :visible="modalVisible" :targetVisible="targetModalVisible">
       <h1>{{ getCountry.name.official }}</h1>
@@ -23,16 +24,10 @@
           </div>
         </div>
 
-        <div class="back">
-          <button class="shadow-elements" @click="targetModalVisible">Show modal</button>
-        </div>
-
         <div class="border-countries">
           Border Countries:
           <router-link v-for="border in getCountry.borders" :key="border" :to="`/details/${border}`">
-            <button>
-              {{ border }}
-            </button>
+            <TheButton :text="border" />
           </router-link>
         </div>
       </div>
@@ -44,10 +39,11 @@
 import { mapGetters } from 'vuex';
 import TheLoader from '@/components/TheLoader';
 import TheModal from '@/components/TheModal';
+import TheButton from '@/components/TheButton';
 
 export default {
   name: 'Details-page',
-  components: {TheModal, TheLoader},
+  components: {TheButton, TheModal, TheLoader},
   data() {
     return {
       modalVisible: false
@@ -122,11 +118,11 @@ export default {
   color: var(--main-text-color);
   padding-bottom: 50px;
 }
-
-.back {
+.buttons {
+  display: flex;
+  justify-content: space-between;
   margin: 50px 0;
 }
-
 .flag-image {
   margin-right: 100px;
   box-shadow: var(--shadow);
@@ -149,12 +145,6 @@ export default {
   margin-top: 20px;
 }
 
-.left, .right {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
 span {
   font-weight: 600;
 }
@@ -174,14 +164,5 @@ span {
   font-weight: 600;
   flex-wrap: wrap;
   gap: 10px;
-}
-button {
-  padding: 5px 30px;
-  background: var(--accent-color);
-  color: var(--main-text-color);
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow);
 }
 </style>

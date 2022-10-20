@@ -3,9 +3,7 @@
     <div class="modal">
       <div class="header">
         <div class="title">Modal</div>
-        <div class="back">
-          <button class="shadow-elements" @click.stop="targetVisible">Закрыть</button>
-        </div>
+        <TheButton text="Close" :callback="targetVisible"/>
       </div>
       <div class="content">
         <slot></slot>
@@ -15,14 +13,11 @@
 </template>
 
 <script>
+import TheButton from '@/components/TheButton';
 export default {
   name: 'TheModal',
+  components: {TheButton},
   props: ['visible', 'targetVisible'],
-  methods: {
-    run() {
-
-    }
-  }
 };
 </script>
 
