@@ -28,7 +28,7 @@ export default {
   column-gap: 50px;
 }
 .countries-list a {
-  animation: 0.5s move;
+  animation: 0.5s move ease-in-out;
 }
 @keyframes move {
   from {

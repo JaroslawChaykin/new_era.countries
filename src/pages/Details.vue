@@ -3,7 +3,9 @@
     <div class="back">
       <button class="shadow-elements" @click="$router.push('/')">Back</button>
     </div>
-
+    <TheModal :visible="modalVisible" :targetVisible="targetModalVisible">
+      <h1>{{ getCountry.name.official }}</h1>
+    </TheModal>
     <TheLoader v-if="getCountryLoading"/>
 
     <div v-else class="country">
@@ -19,6 +21,10 @@
               <span>{{ dtl.name }}: </span>{{ dtl.data }}
             </div>
           </div>
+        </div>
+
+        <div class="back">
+          <button class="shadow-elements" @click="targetModalVisible">Show modal</button>
         </div>
 
         <div class="border-countries">
@@ -37,12 +43,15 @@
 <script>
 import { mapGetters } from 'vuex';
 import TheLoader from '@/components/TheLoader';
+import TheModal from '@/components/TheModal';
 
 export default {
   name: 'Details-page',
-  components: {TheLoader},
+  components: {TheModal, TheLoader},
   data() {
-    return {};
+    return {
+      modalVisible: false
+    };
   },
   computed: {
     ...mapGetters(['getCountry', 'getCountryLoading']),
@@ -88,6 +97,11 @@ export default {
         ];
       }
       return null;
+    }
+  },
+  methods: {
+    targetModalVisible() {
+      this.modalVisible = !this.modalVisible
     }
   },
   created() {
