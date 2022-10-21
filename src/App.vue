@@ -30,9 +30,6 @@ export default {
   max-height: 100%;
   background: var(--main-color);
 }
-.shadow-elements {
-  box-shadow: var(--shadow);
-}
 .container {
   width: 90%;
   display: flex;
