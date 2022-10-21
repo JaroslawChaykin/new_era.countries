@@ -4,12 +4,15 @@
       <TheButton text="Back" :callback="() => $router.push('/')" />
       <TheButton text="Show modal" :callback="targetModalVisible" />
     </div>
-    <TheModal :visible="modalVisible" :targetVisible="targetModalVisible">
-      <h1>{{ getCountry.name.official }}</h1>
-    </TheModal>
+
     <TheLoader v-if="getCountryLoading"/>
 
     <div v-else class="country">
+
+      <TheModal :visible="modalVisible" :targetVisible="targetModalVisible">
+        <h1>{{ getCountry.name.official }}</h1>
+      </TheModal>
+
       <div class="flag-image">
         <img :src="getCountry.flags.svg" :alt="getCountry.name.official">
       </div>
