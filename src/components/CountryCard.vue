@@ -35,7 +35,7 @@ a {
   text-decoration: none;
 }
 .country-card {
-  width: 100%;
+  width: 250px;
   background: var(--accent-color);
   border-radius: 5px;
   overflow: hidden;

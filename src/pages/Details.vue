@@ -57,8 +57,8 @@ export default {
     mapLanguages() {
       return Object.entries(this.getCountry.languages).reduce((acc, language, index) => {
         return Object.keys(this.getCountry.languages).length === ++index
-            ? acc += language[1]
-            : acc += `${language[1]}, `;
+            ? acc + language[1]
+            : acc + `${language[1]}, `;
       }, []);
     },
     getCurrencies() {

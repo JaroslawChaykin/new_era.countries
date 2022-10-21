@@ -19,9 +19,9 @@ export default {
 
 <style scoped>
 .countries-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
+  display: flex;
+  /*grid-template-columns: repeat(4, 1fr);*/
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin: 50px 0;
   row-gap: 25px;
